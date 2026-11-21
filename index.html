@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Complaint Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>Digital Complaint Management System</h1><p>Submit, track and resolve complaints in one place</p></header>
+<nav id="nav">
+<button data-v="submit" class="on">Submit Complaint</button>
+<button data-v="track">Track Status</button>
+<button data-v="admin">Admin Panel</button>
+</nav>
+<main>
+
+<section id="submit">
+<div class="card">
+<h2>Submit a complaint</h2>
+<div class="row">
+<div><label>Full name *</label><input id="sName" maxlength="60"></div>
+<div><label>Student / Roll ID *</label><input id="sRoll" maxlength="30"></div>
+</div>
+<div class="row">
+<div><label>Category *</label>
+<select id="sCat"><option>Academic</option><option>Hostel</option><option>Classroom</option><option>Washroom</option><option>Library</option><option>Canteen</option><option>Transport</option><option>Infrastructure</option><option>Harassment</option><option>Other</option></select></div>
+<div><label>Priority</label><select id="sPri"><option>Low</option><option selected>Medium</option><option>High</option></select></div>
+</div>
+<label>Subject *</label><input id="sSub" maxlength="100">
+<label>Describe the issue *</label>
+<textarea id="sDesc" placeholder="What happened, when, and where?"></textarea>
+<label>Upload proof (image, optional)</label>
+<input id="sImg" type="file" accept="image/*">
+<img id="prev" class="proof hide" alt="Proof preview">
+<button class="btn" id="subBtn">Submit complaint</button>
+</div>
+<div id="done" class="card hide"></div>
+</section>
+
+<section id="track" class="hide">
+<div class="card">
+<h2>Track your complaint</h2>
+<div class="row">
+<div><label>Complaint ID</label><input id="tId" placeholder="e.g. CMP-1001"></div>
+<div><label>Or Student / Roll ID</label><input id="tRoll"></div>
+</div>
+<button class="btn" id="tBtn">Search</button>
+</div>
+<div id="tOut"></div>
+</section>
+
+<section id="admin" class="hide">
+<div id="login" class="card">
+<h2>Admin login</h2>
+<label>Password</label><input id="pw" type="password" placeholder="Enter admin password" autocomplete="off">
+<button class="btn" id="loginBtn">Login</button>
+</div>
+<div id="panel" class="hide">
+<div class="stats" id="stats"></div>
+<div class="card">
+<div class="row">
+<div><label>Filter by status</label><select id="fSt"><option>All</option><option>Pending</option><option>In Review</option><option>Resolved</option><option>Rejected</option></select></div>
+<div><label>Search</label><input id="fQ" placeholder="ID, name, subject..."></div>
+</div>
+<button class="btn sec sm" id="logout" style="margin-top:12px">Logout</button>
+</div>
+<div id="list"></div>
+</div>
+</section>
+
+</main>
+<div id="lb"><img alt="Proof"></div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
